@@ -2,7 +2,7 @@ import csv
 import io
 from fastapi import APIRouter, Depends, Query, Response
 from sqlalchemy.orm import Session, joinedload
-from typing import Optional
+from typing import Optional, Literal
 from app.database import get_db
 from app.models import Finding, Vulnerability, Project
 
@@ -10,7 +10,7 @@ router = APIRouter(prefix="/reports", tags=["Reports"])
 
 @router.get("/export")
 def export_findings(
-    format: str = Query("csv", enum=["csv", "json"]),
+    format: Literal["csv", "json"] = "csv",
     project_id: Optional[int] = None,
     status: Optional[str] = None,
     severity: Optional[str] = None,

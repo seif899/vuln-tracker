@@ -2,7 +2,7 @@ from datetime import datetime
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session, joinedload
 from sqlalchemy import or_, desc, asc
-from typing import List, Optional
+from typing import List, Optional, Literal
 from app.database import get_db
 from app.models import Finding, Vulnerability, Project, TriageAuditLog
 from app.schemas import (
@@ -53,8 +53,8 @@ def list_findings(
     status: Optional[str] = None,
     search: Optional[str] = None,
     is_breached: Optional[bool] = None,
-    sort_by: str = Query("created_at", enum=["created_at", "severity", "cvss_score", "status"]),
-    order: str = Query("desc", enum=["asc", "desc"]),
+    sort_by: Literal["created_at", "severity", "cvss_score", "status"] = "created_at",
+    order: Literal["asc", "desc"] = "desc",
     limit: int = 100,
     offset: int = 0,
     db: Session = Depends(get_db)
