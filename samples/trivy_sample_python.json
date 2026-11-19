@@ -1,0 +1,110 @@
+{
+  "SchemaVersion": 2,
+  "ArtifactName": "api-gateway:v2.1.0",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "OS": {
+      "Family": "alpine",
+      "Name": "3.19.1"
+    }
+  },
+  "Results": [
+    {
+      "Target": "requirements.txt",
+      "Class": "lang-pkgs",
+      "Type": "pip",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2023-43804",
+          "PkgName": "urllib3",
+          "InstalledVersion": "1.26.17",
+          "FixedVersion": "1.26.18, 2.0.7",
+          "Status": "fixed",
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-43804",
+          "Title": "urllib3 Cookie Request Header Leakage",
+          "Description": "urllib3 does not remove the Cookie request header when redirected to a different origin or protocol, exposing sensitive session tokens.",
+          "Severity": "HIGH",
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N",
+              "V3Score": 7.5
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2023-46136",
+          "PkgName": "werkzeug",
+          "InstalledVersion": "2.3.7",
+          "FixedVersion": "2.3.8, 3.0.1",
+          "Status": "fixed",
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-46136",
+          "Title": "Werkzeug High Resource Consumption via multipart form-data parser",
+          "Description": "Werkzeug multipart parser parsing malicious nested multipart/form-data can lead to CPU starvation and Denials of Service.",
+          "Severity": "HIGH",
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2024-37891",
+          "PkgName": "urllib3",
+          "InstalledVersion": "1.26.17",
+          "FixedVersion": "1.26.19, 2.2.2",
+          "Status": "fixed",
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-37891",
+          "Title": "urllib3 Proxy-Authorization Header not stripped on HTTP-to-HTTPS redirect",
+          "Description": "When using urllib3 with a proxy, the Proxy-Authorization header was not stripped during redirect hops, resulting in credential leakage.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 6.5
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2023-50782",
+          "PkgName": "cryptography",
+          "InstalledVersion": "41.0.4",
+          "FixedVersion": "41.0.6",
+          "Status": "fixed",
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-50782",
+          "Title": "cryptography Timing Attack on PKCS#1 v1.5 Decryption",
+          "Description": "A Bleichenbacher-style timing discrepancy in RSA PKCS#1 v1.5 decryption in cryptography prior to 41.0.6 permits plaintext recovery.",
+          "Severity": "HIGH",
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 7.0
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2024-21626",
+          "PkgName": "runc",
+          "InstalledVersion": "1.1.10",
+          "FixedVersion": "1.1.12",
+          "Status": "fixed",
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-21626",
+          "Title": "runc container breakout through internal file descriptor leak (Leaky Vessels)",
+          "Description": "In runc 1.1.11 and earlier, internal file descriptors are leaked to child processes, allowing an attacker to escape the container boundary.",
+          "Severity": "CRITICAL",
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+              "V3Score": 8.6
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

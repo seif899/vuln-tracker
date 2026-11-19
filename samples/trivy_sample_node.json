@@ -1,0 +1,114 @@
+{
+  "SchemaVersion": 2,
+  "ArtifactName": "frontend-service:v1.4.0",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "OS": {
+      "Family": "debian",
+      "Name": "11.7"
+    },
+    "ImageConfig": {
+      "architecture": "amd64",
+      "created": "2024-05-10T12:00:00Z"
+    }
+  },
+  "Results": [
+    {
+      "Target": "app/package-lock.json",
+      "Class": "lang-pkgs",
+      "Type": "npm",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2023-45133",
+          "PkgName": "babel-traverse",
+          "InstalledVersion": "7.22.15",
+          "FixedVersion": "7.23.2",
+          "Status": "fixed",
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-45133",
+          "Title": "Babel vulnerable to arbitrary code execution when compiling specific constructs",
+          "Description": "Babel is a compiler for writing next generation JavaScript. Using Babel's code transformation with arbitrary input can allow internal ast mutation leading to arbitrary code execution.",
+          "Severity": "CRITICAL",
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+              "V3Score": 9.3
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2023-26159",
+          "PkgName": "follow-redirects",
+          "InstalledVersion": "1.15.2",
+          "FixedVersion": "1.15.4",
+          "Status": "fixed",
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-26159",
+          "Title": "follow-redirects improperly handles URLs in fetch calls leading to header leakage",
+          "Description": "Follow-redirects package prior to version 1.15.4 allows unauthorized authorization header propagation during cross-origin redirects.",
+          "Severity": "HIGH",
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "V3Score": 7.5
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2024-28849",
+          "PkgName": "follow-redirects",
+          "InstalledVersion": "1.15.2",
+          "FixedVersion": "1.15.6",
+          "Status": "fixed",
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-28849",
+          "Title": "follow-redirects Proxy-Authorization Header Leakage",
+          "Description": "A vulnerability exists in follow-redirects where Proxy-Authorization headers are forwarded cross-domain during automated redirect following.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:N/A:N",
+              "V3Score": 5.4
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2022-25883",
+          "PkgName": "semver",
+          "InstalledVersion": "5.7.1",
+          "FixedVersion": "5.7.2, 6.3.1, 7.5.2",
+          "Status": "fixed",
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-25883",
+          "Title": "Regular Expression Denial of Service in semver",
+          "Description": "The semver package is vulnerable to ReDoS via untrusted long semver range string comparisons.",
+          "Severity": "MEDIUM",
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 5.3
+            }
+          }
+        },
+        {
+          "VulnerabilityID": "CVE-2023-42282",
+          "PkgName": "ip",
+          "InstalledVersion": "1.1.8",
+          "FixedVersion": "1.1.9",
+          "Status": "fixed",
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-42282",
+          "Title": "Improper Input Validation in ip package allows SSRF bypass",
+          "Description": "The ip npm package incorrectly parses leading zeros in IPv4 addresses, which can allow attackers to bypass SSRF protections.",
+          "Severity": "HIGH",
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N",
+              "V3Score": 8.2
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
