@@ -4,20 +4,27 @@ services:
   postgres:
     image: postgres:16-alpine
     container_name: vuln-tracker-db
+    hostname: postgres
     restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
       POSTGRES_DB: ${POSTGRES_DB:-vuln_tracker}
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT:-5432}:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+    networks:
+      tracker-network:
+        aliases:
+          - postgres
+          - vuln-tracker-db
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-vuln_tracker}"]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
 
   backend:
     build:
@@ -33,11 +40,13 @@ services:
       API_V1_STR: /api/v1
     ports:
       - "8000:8000"
+    networks:
+      - tracker-network
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/healthz"]
       interval: 10s
       timeout: 5s
-      retries: 3
+      retries: 5
 
   frontend:
     build:
@@ -49,6 +58,12 @@ services:
       - backend
     ports:
       - "3000:80"
+    networks:
+      - tracker-network
+
+networks:
+  tracker-network:
+    driver: bridge
 
 volumes:
   pgdata:
